@@ -1,0 +1,23 @@
+#clock {
+  min-height: 50vh; /* minimum height = screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 100px
+}
+
+#Progress {
+  margin: 0 auto;
+  color: transparent;
+  align-items:center;
+  width: 50%;
+  background-color: white;
+  border: 2px solid black;
+}
+
+#Bar {
+  width: 0%;
+  height: 20px;
+  background-color: black;
+}
