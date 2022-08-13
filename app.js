@@ -1,28 +1,30 @@
 function currentTime() {
-  var date = new Date(); 
-  var hh = date.getHours();
-  var mm = date.getMinutes();
-  var ss = date.getSeconds();
-  var ms = date.getMilliseconds();
-    
-  var st = (hh + mm/60 + ss/3600 + ms/3600000) * (1000/24);
 
-  per = Math.trunc(st/10);
+  let date = new Date(); 
 
-  st = st.toFixed(3);
+  let hour = date.getHours();
+  let minute = date.getMinutes();
+  let second = date.getSeconds();
+  let millisecond = date.getMilliseconds();
 
-  st = st.replace(".", ":");
+  let toHour = hour + minute/60 + second/3600 + millisecond/3600000;
 
-  var time = st;
+  let toDecimal = toHour * (1000/24);
+   
+  let decimalRounded = Math.trunc(toDecimal/10);
 
-  var elem = document.getElementById("Bar");
+  toDecimal = toDecimal.toFixed(3);
 
-  elem.style.width = per  + "%";
+  toDecimal = toDecimal.replace(".", " : ");
 
-  elem.innerHTML = per + "%";
+  let elem = document.getElementById("Bar");
 
-  document.getElementById("clock").innerText = time; 
-  var t = setTimeout(function(){ currentTime() }, 1); 
+  elem.style.width = decimalRounded  + "%";
+
+  elem.innerHTML = decimalRounded + "%";
+
+  document.getElementById("clock").innerText = toDecimal; 
+  let t = setTimeout(function(){ currentTime() }, 1); 
 }
 
 currentTime();
