@@ -1,30 +1,25 @@
 function currentTime() {
-
-  let date = new Date(); 
-
-  let hour = date.getHours();
-  let minute = date.getMinutes();
-  let second = date.getSeconds();
-  let millisecond = date.getMilliseconds();
-
-  let toHour = hour + minute/60 + second/3600 + millisecond/3600000;
-
-  let toDecimal = toHour * (1000/24);
-   
-  let decimalRounded = Math.trunc(toDecimal/10);
-
-  toDecimal = toDecimal.toFixed(3);
-
-  toDecimal = toDecimal.replace(".", " : ");
-
+  let dateNow = new Date(); 
+  let formattedDate = dateFormatter(toDecimal(dateNow));
+  let elapsedPercent = Math.trunc(toDecimal(dateNow)/10); //output -> number between 0 and 100
   let elem = document.getElementById("Bar");
+  elem.style.width = elapsedPercent  + "%";
+  elem.innerHTML = elapsedPercent + "%";
 
-  elem.style.width = decimalRounded  + "%";
-
-  elem.innerHTML = decimalRounded + "%";
-
-  document.getElementById("clock").innerText = toDecimal; 
+  document.getElementById("clock").innerText = formattedDate; 
   let t = setTimeout(function(){ currentTime() }, 1); 
+}
+
+function toDecimal(date) {
+  let dateToHour = date.getHours() + date.getMinutes()/60 + date.getSeconds()/3600 +  date.getMilliseconds()/3600000;
+  let hourToDecimal = toHour * (1000/24);
+  return hourToDecimal;
+}
+
+function dateFormatter(date) {
+  date = date.toFixed(3);
+  date = date.replace(".", " : ");
+  return date;
 }
 
 currentTime();
