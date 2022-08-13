@@ -1,3 +1,7 @@
+body {
+  font-family: monospace;
+}
+
 #clock {
   min-height: 50vh; /* minimum height = screen height */
   display: flex;
