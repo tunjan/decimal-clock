@@ -1,14 +1,19 @@
 body {
   font-family: monospace;
+  margin: 30px;
+  text-align: center;
 }
 
 #clock {
-  min-height: 50vh; /* minimum height = screen height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
+  text-align: center;
   font-weight: 400;
-  font-size: 100px
+  font-size: 3em;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  margin: 5%;
+  border-radius: 10px;
 }
 
 #Progress {
